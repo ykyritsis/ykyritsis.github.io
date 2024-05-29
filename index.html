@@ -3,37 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Modern Personal Website</title>
+    <title>Product Designer</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <h1>Welcome to My Personal Website</h1>
-    </header>
-    <main>
-        <section id="home">
-            <h2>Home</h2>
-            <p>This is the home section of my personal website. Here, you can find the latest updates and news about me.</p>
-        </section>
-        <section id="about">
-            <h2>About</h2>
-            <p>This section contains information about me, my background, and my interests.</p>
-        </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>If you want to get in touch, feel free to contact me through this section.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 My Personal Website</p>
-    </footer>
-    <script src="scripts.js"></script>
+<body class="light-mode">
+    <div class="mode-switch">
+        <button id="mode-toggle">🌞</button>
+    </div>
+    <div class="container">
+        <div class="text-content">
+            <h1>Hello, it's me</h1>
+            <h2>Yiannis<span class="dot">.</span></h2>
+            <p id="main-text">As a third-year computer science student with a passion for web development and artificial intelligence, I am currently advancing my skills as a data scientist. I am dedicated to exploring the frontiers of technology and crafting innovative solutions that enhance user experiences.</p>
+        </div>
+        <div class="options-content">
+            <p class="option" data-info="Option A: Placeholder text for option A."><span class="option-heading">Option A</span></p>
+            <p class="option" data-info="Option B: Placeholder text for option B."><span class="option-heading">Option B</span></p>
+            <p class="option" data-info="Option C: Placeholder text for option C."><span class="option-heading">Option C</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
