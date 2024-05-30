@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YK</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"> <!-- Google Fonts link -->
     <style>
         /* Inline style to immediately apply the correct mode */
         body {
@@ -32,21 +33,25 @@
     </div>
     <div class="container">
         <div class="text-content">
-            <h1 id="reset-name">Hello, it's me</h1>
+            <h1 id="reset-name">Hi, I'm</h1>
             <h2 id="name">Yiannis<span class="dot">.</span></h2>
             <p class="location">📍 Based in Melbourne</p>
             <p id="main-text">As a third-year computer science student with a passion for web development and artificial intelligence,<br>I am currently advancing my skills as a data scientist. I am dedicated to exploring the frontiers of technology and crafting innovative solutions that enhance user experiences.</p>
             <button class="contact-button" onclick="window.location.href='contact.html'">Contact Me</button>
+            <button id="scroll-to-options" class="scroll-button">Explore Options</button>
         </div>
+    </div>
+    <div class="options-section" id="options-section">
         <div class="options-wrapper">
             <p class="need-text">I need</p>
             <div class="options-content">
-                <p class="option" data-info="I can create a website from scratch, tailored specifically to your needs and goals. This includes everything from the initial concept and design to the final development and deployment."><span class="option-heading">a website from scratch 🌐</span></p>
-                <p class="option" data-info="I can redesign and revamp your website to update its look and functionality, improving user experience, performance, and overall appeal. This can involve visual redesigns, structural changes, and adding new features."><span class="option-heading">my website redesigned and revamped 🔄</span></p>
-                <p class="option" data-info="I can provide digital art or media services, including creating custom graphics, illustrations, videos, and other multimedia content to enhance your brand's visual presence and engage your audience effectively."><span class="option-heading">digital art or media for my business 🎨</span></p>
-                <p class="option" data-info="If you have any other needs or projects in mind that don't fit into the categories above, please let me know. I'm open to discussing any custom requests and finding the best solution for your unique requirements."><span class="option-heading">something else ❓</span></p>
+                <p class="option" data-info="I can create a website from scratch, tailored specifically to your needs and goals. This includes everything from the initial concept and design to the final development and deployment."><span class="option-heading">a website from scratch</span></p>
+                <p class="option" data-info="I can redesign and revamp your website to update its look and functionality, improving user experience, performance, and overall appeal. This can involve visual redesigns, structural changes, and adding new features."><span class="option-heading">my website redesigned and revamped</span></p>
+                <p class="option" data-info="I can provide digital art or media services, including creating custom graphics, illustrations, videos, and other multimedia content to enhance your brand's visual presence and engage your audience effectively."><span class="option-heading">digital art or media for my business</span></p>
+                <p class="option" data-info="If you have any other needs or projects in mind that don't fit into the categories above, please let me know. I'm open to discussing any custom requests and finding the best solution for your unique requirements."><span class="option-heading">something else</span></p>
             </div>
         </div>
+        <div class="option-description" id="option-description"></div>
     </div>
     <script src="script.js"></script>
 </body>
