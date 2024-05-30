@@ -5,10 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YK</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline style to immediately apply the correct mode */
+        body {
+            background-color: #D9D9D9;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode body {
+            background-color: #000;
+            color: #fff;
+        }
+    </style>
+    <script>
+        // Inline script to set the initial mode based on saved preference
+        (function() {
+            const savedMode = localStorage.getItem('mode') || 'light';
+            if (savedMode === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
 </head>
 <body>
     <div class="mode-switch">
-        <button id="mode-toggle">🌞</button>
+        <button id="mode-toggle">🌙</button>
     </div>
     <div class="container">
         <div class="text-content">
@@ -18,10 +38,14 @@
             <p id="main-text">As a third-year computer science student with a passion for web development and artificial intelligence,<br>I am currently advancing my skills as a data scientist. I am dedicated to exploring the frontiers of technology and crafting innovative solutions that enhance user experiences.</p>
             <button class="contact-button" onclick="window.location.href='contact.html'">Contact Me</button>
         </div>
-        <div class="options-content">
-            <p class="option" data-info="Option A: Placeholder text for option A."><span class="option-heading">Option A</span></p>
-            <p class="option" data-info="Option B: Placeholder text for option B."><span class="option-heading">Option B</span></p>
-            <p class="option" data-info="Option C: Placeholder text for option C."><span class="option-heading">Option C</span></p>
+        <div class="options-wrapper">
+            <p class="need-text">I need</p>
+            <div class="options-content">
+                <p class="option" data-info="I can create a website from scratch, tailored specifically to your needs and goals. This includes everything from the initial concept and design to the final development and deployment."><span class="option-heading">a website from scratch 🌐</span></p>
+                <p class="option" data-info="I can redesign and revamp your website to update its look and functionality, improving user experience, performance, and overall appeal. This can involve visual redesigns, structural changes, and adding new features."><span class="option-heading">my website redesigned and revamped 🔄</span></p>
+                <p class="option" data-info="I can provide digital art or media services, including creating custom graphics, illustrations, videos, and other multimedia content to enhance your brand's visual presence and engage your audience effectively."><span class="option-heading">digital art or media for my business 🎨</span></p>
+                <p class="option" data-info="If you have any other needs or projects in mind that don't fit into the categories above, please let me know. I'm open to discussing any custom requests and finding the best solution for your unique requirements."><span class="option-heading">something else ❓</span></p>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>

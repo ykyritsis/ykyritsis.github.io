@@ -8,6 +8,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const originalText = "As a third-year computer science student with a passion for web development and artificial intelligence,<br>I am currently advancing my skills as a data scientist. I am dedicated to exploring the frontiers of technology and crafting innovative solutions that enhance user experiences.";
 
+    const applyMode = (mode) => {
+        if (mode === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+            modeToggle.textContent = '🌞';
+        } else {
+            document.documentElement.classList.remove('dark-mode');
+            modeToggle.textContent = '🌙';
+        }
+    };
+
+    const savedMode = localStorage.getItem('mode') || 'light';
+    applyMode(savedMode);
+
     options.forEach(option => {
         option.addEventListener('click', () => {
             options.forEach(opt => opt.classList.remove('selected'));
@@ -29,15 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     };
 
-    resetName.addEventListener('click', resetText);
-    name.addEventListener('click', resetText);
+    if (resetName) resetName.addEventListener('click', resetText);
+    if (name) name.addEventListener('click', resetText);
 
     modeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        if (body.classList.contains('dark-mode')) {
-            modeToggle.textContent = '🌙';
-        } else {
-            modeToggle.textContent = '🌞';
-        }
+        const currentMode = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
+        const newMode = currentMode === 'dark' ? 'light' : 'dark';
+        applyMode(newMode);
+        localStorage.setItem('mode', newMode);
     });
 });
