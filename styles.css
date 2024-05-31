@@ -35,15 +35,28 @@ body {
     cursor: pointer;
 }
 
+.name-and-image {
+    display: flex;
+    align-items: center;
+}
+
 .text-content h2 {
     font-size: 3.5rem;
     margin: 10px 0;
     font-weight: bold;
     cursor: pointer;
+    flex: 1;
 }
 
 .text-content .dot {
     color: #0056b3;
+}
+
+.visual-element {
+    width: 150px;
+    height: auto;
+    margin-left: 20px;
+    border-radius: 10px;
 }
 
 .text-content .location {
@@ -249,6 +262,17 @@ body {
     .option-description {
         font-size: 0.9rem;
         padding: 15px;
+    }
+
+    .name-and-image {
+        flex-direction: column;
+    }
+
+    .visual-element {
+        margin-left: 0;
+        margin-top: 20px;
+        width: 100%;
+        max-width: 300px;
     }
 }
 
