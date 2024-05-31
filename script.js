@@ -102,3 +102,4 @@ document.addEventListener('DOMContentLoaded', () => {
         showcaseButton.addEventListener('click', (event) => handleNavigation(event, 'showcase.html'));
     }
 });
+
