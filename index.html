@@ -5,9 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YK</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"> <!-- Google Fonts link -->
     <style>
-        /* Inline style to immediately apply the correct mode */
         body {
             background-color: #D9D9D9;
             transition: background-color 0.3s, color 0.3s;
@@ -18,7 +16,6 @@
         }
     </style>
     <script>
-        // Inline script to set the initial mode based on saved preference
         (function() {
             const savedMode = localStorage.getItem('mode') || 'light';
             if (savedMode === 'dark') {
@@ -53,7 +50,6 @@
         </div>
         <div class="option-description" id="option-description"></div>
     </div>
-    <div class="custom-cursor" id="custom-cursor"></div> <!-- Custom cursor element -->
     <script src="script.js"></script>
 </body>
 </html>
