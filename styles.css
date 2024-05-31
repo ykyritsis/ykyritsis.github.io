@@ -11,7 +11,6 @@ body {
     min-height: 100vh;
     transition: background-color 0.3s, color 0.3s;
     scroll-behavior: smooth;
-	cursor: none; /* Hide the default cursor */
 }
 
 .container {
@@ -346,34 +345,37 @@ body {
     }
 }
 
-/* Hide the default cursor */
-/* Hide the default cursor */
-/* Hide the default cursor */
-/* Hide the default cursor */
-/* Hide the default cursor */
+/* Global styles */
 body, button, a, .option, .scroll-button, .contact-button, .showcase-button, .option-heading, .grid-item, .placeholder-text, * {
-    cursor: none; /* Hide the default cursor */
+    cursor: auto; /* Default cursor for all elements */
 }
 
-/* Custom cursor styles */
-.cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #333; /* Circle border color */
-    border-radius: 50%;
-    pointer-events: none;
-    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-    transform: translate(-50%, -50%); /* Center the cursor on the mouse pointer */
-    z-index: 10000;
-}
+/* Custom cursor styles for larger screens */
+@media (min-width: 769px) {
+    body, button, a, .option, .scroll-button, .contact-button, .showcase-button, .option-heading, .grid-item, .placeholder-text, * {
+        cursor: none; /* Hide the default cursor on larger screens */
+    }
 
-.cursor-hover {
-    width: 30px; /* Increase size on hover */
-    height: 30px;
-    border-color: #0056b3; /* Change color on hover */
+    .cursor {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #333; /* Circle border color */
+        border-radius: 50%;
+        pointer-events: none;
+        transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
+        transform: translate(-50%, -50%); /* Center the cursor on the mouse pointer */
+        z-index: 10000;
+    }
+
+    .cursor-hover {
+        width: 30px; /* Increase size on hover */
+        height: 30px;
+        border-color: #0056b3; /* Change color on hover */
+    }
 }
 
 /* Hide custom cursor on mobile devices */
@@ -381,7 +383,5 @@ body, button, a, .option, .scroll-button, .contact-button, .showcase-button, .op
     .cursor {
         display: none;
     }
-    body, button, a, .option, .scroll-button, .contact-button, .showcase-button, .option-heading, .grid-item, .placeholder-text, * {
-        cursor: auto; /* Show the default cursor */
-    }
 }
+
