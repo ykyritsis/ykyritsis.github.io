@@ -5,29 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>YK</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             background-color: #D9D9D9;
             transition: background-color 0.3s, color 0.3s;
         }
-        .dark-mode body {
-            background-color: #000;
-            color: #fff;
-        }
     </style>
-    <script>
-        (function() {
-            const savedMode = localStorage.getItem('mode') || 'light';
-            if (savedMode === 'dark') {
-                document.documentElement.classList.add('dark-mode');
-            }
-        })();
-    </script>
 </head>
 <body>
-    <div class="mode-switch">
-        <button id="mode-toggle">🌙</button>
-    </div>
     <div class="container">
         <div class="text-content">
             <h1 id="reset-name">Hi, I'm</h1>
@@ -35,7 +21,9 @@
             <p class="location">📍 Based in Melbourne</p>
             <p id="main-text">As a third-year computer science student with a passion for web development and artificial intelligence,<br>I am currently advancing my skills as a data scientist. I am dedicated to exploring the frontiers of technology and crafting innovative solutions that enhance user experiences.</p>
             <button class="contact-button" id="contact-button">Contact Me</button>
-            <button id="scroll-to-options" class="scroll-button">Explore Options</button>
+            <button id="scroll-to-options" class="scroll-button">Explore Options <i class="fas fa-arrow-down"></i></button>
+			<button id="showcase-button" class="showcase-button">Showcase</button>
+            <hr class="separator">
         </div>
     </div>
     <div class="options-section" id="options-section">

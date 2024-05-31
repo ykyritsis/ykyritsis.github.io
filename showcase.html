@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase - YK</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #D9D9D9;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .showcase-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .showcase-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .grid-item {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .placeholder-text {
+            font-size: 1.5rem;
+            color: #333;
+        }
+
+        .back-link {
+            align-self: flex-start;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #0056b3;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="showcase-container">
+        <a href="index.html" class="back-link">← Back</a>
+        <h1 class="showcase-title">Showcase</h1>
+        <div class="grid">
+            <div class="grid-item"><p class="placeholder-text">Project 1</p></div>
+            <div class="grid-item"><p class="placeholder-text">Project 2</p></div>
+            <div class="grid-item"><p class="placeholder-text">Project 3</p></div>
+            <div class="grid-item"><p class="placeholder-text">Project 4</p></div>
+            <div class="grid-item"><p class="placeholder-text">Project 5</p></div>
+            <div class="grid-item"><p class="placeholder-text">Project 6</p></div>
+        </div>
+    </div>
+</body>
+</html>

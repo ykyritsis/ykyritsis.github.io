@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     const options = document.querySelectorAll('.option');
-    const modeToggle = document.getElementById('mode-toggle');
     const resetName = document.getElementById('reset-name');
     const name = document.getElementById('name');
     const body = document.body;
@@ -8,21 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const optionsSection = document.getElementById('options-section');
     const optionDescription = document.getElementById('option-description');
     const contactButton = document.getElementById('contact-button');
+    const showcaseButton = document.getElementById('showcase-button');
 
     const originalText = "As a third-year computer science student with a passion for web development and artificial intelligence,<br>I am currently advancing my skills as a data scientist. I am dedicated to exploring the frontiers of technology and crafting innovative solutions that enhance user experiences.";
-
-    const applyMode = (mode) => {
-        if (mode === 'dark') {
-            document.documentElement.classList.add('dark-mode');
-            modeToggle.textContent = '🌞';
-        } else {
-            document.documentElement.classList.remove('dark-mode');
-            modeToggle.textContent = '🌙';
-        }
-    };
-
-    const savedMode = localStorage.getItem('mode') || 'light';
-    applyMode(savedMode);
 
     options.forEach(option => {
         option.addEventListener('click', () => {
@@ -49,13 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (resetName) resetName.addEventListener('click', resetText);
     if (name) name.addEventListener('click', resetText);
 
-    modeToggle.addEventListener('click', () => {
-        const currentMode = document.documentElement.classList.contains('dark-mode') ? 'dark' : 'light';
-        const newMode = currentMode === 'dark' ? 'light' : 'dark';
-        applyMode(newMode);
-        localStorage.setItem('mode', newMode);
-    });
-
     scrollToOptionsButton.addEventListener('click', () => {
         optionsSection.scrollIntoView({ behavior: 'smooth' });
     });
@@ -65,6 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('fade-out');
         setTimeout(() => {
             window.location.href = 'contact.html';
+        }, 500); // Duration of the fade-out animation
+    });
+
+    showcaseButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        document.body.classList.add('fade-out');
+        setTimeout(() => {
+            window.location.href = 'showcase.html';
         }, 500); // Duration of the fade-out animation
     });
 });
