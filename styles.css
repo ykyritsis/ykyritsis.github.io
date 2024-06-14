@@ -25,10 +25,13 @@ body {
 }
 
 .top-center-logo {
-    position: absolute;
+    position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 10px;
 }
 
 .text-content {
@@ -55,10 +58,7 @@ body {
 }
 
 .visual-element {
-    width: 150px;
-    height: auto;
-    margin-bottom: 10px; /* Reduced margin to decrease space */
-    border-radius: 10px;
+    display: none; /* Hide the visual element that was previously below the text */
 }
 
 .text-content .location {
@@ -381,46 +381,6 @@ body {
     }
 }
 
-/* Global styles */
-body, button, a, .option, .scroll-button, .contact-button, .showcase-button, .option-heading, .grid-item, .placeholder-text, * {
-    cursor: auto; /* Default cursor for all elements */
-}
-
-/* Custom cursor styles for larger screens */
-@media (min-width: 769px) {
-    body, button, a, .option, .scroll-button, .contact-button, .showcase-button, .option-heading, .grid-item, .placeholder-text, * {
-        cursor: none; /* Hide the default cursor on larger screens */
-    }
-
-    .cursor {
-        display: block;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 20px;
-        height: 20px;
-        border: 2px solid #333; /* Circle border color */
-        border-radius: 50%;
-        pointer-events: none;
-        transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-        transform: translate(-50%, -50%); /* Center the cursor on the mouse pointer */
-        z-index: 10000;
-    }
-
-    .cursor-hover {
-        width: 30px; /* Increase size on hover */
-        height: 30px;
-        border-color: #0056b3; /* Change color on hover */
-    }
-}
-
-/* Hide custom cursor on mobile devices */
-@media (max-width: 768px) {
-    .cursor {
-        display: none;
-    }
-}
-
 /* Fade-out animation */
 .fade-out {
     animation: fadeOut 0.5s forwards;
@@ -434,3 +394,4 @@ body, button, a, .option, .scroll-button, .contact-button, .showcase-button, .op
         opacity: 0;
     }
 }
+

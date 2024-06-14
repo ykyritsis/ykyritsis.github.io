@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const isDesktop = window.innerWidth > 768;
-    const cursor = document.getElementById('cursor');
+    // const cursor = document.getElementById('cursor');
 
     // Function to preload pages
     const preloadPages = (urls) => {
@@ -11,32 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Preload contact and showcase pages
     preloadPages(['contact.html', 'showcase.html']);
-
-    if (isDesktop && cursor) {
-        console.log('Cursor element found.');
-
-        // Custom cursor movement
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.top = `${e.clientY}px`;
-            cursor.style.left = `${e.clientX}px`;
-        });
-
-        // Enlarge cursor on hover
-        const hoverElements = document.querySelectorAll('button, .option, a, .option-heading, .grid-item');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseover', () => {
-                cursor.classList.add('cursor-hover');
-            });
-            el.addEventListener('mouseout', () => {
-                cursor.classList.remove('cursor-hover');
-            });
-        });
-
-        // Hide default cursor for all elements
-        document.querySelectorAll('*').forEach(el => {
-            el.style.cursor = 'none';
-        });
-    }
 
     // Mobile-specific adjustments
     if (!isDesktop) {
@@ -102,4 +76,3 @@ document.addEventListener('DOMContentLoaded', () => {
         showcaseButton.addEventListener('click', (event) => handleNavigation(event, 'showcase.html'));
     }
 });
-
