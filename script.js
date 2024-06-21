@@ -1,33 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
     const isDesktop = window.innerWidth > 768;
-    // const cursor = document.getElementById('cursor');
 
-    // Function to preload pages
     const preloadPages = (urls) => {
         urls.forEach(url => {
             fetch(url, { method: 'GET', cache: 'force-cache' });
         });
     };
 
-    // Preload contact and showcase pages
     preloadPages(['contact.html', 'showcase.html']);
 
-    // Mobile-specific adjustments
-    if (!isDesktop) {
-        document.querySelectorAll('button, a, .option, .grid-item').forEach(el => {
-            el.style.cursor = 'auto'; // Ensure pointer events are enabled
-        });
-    }
+    document.querySelectorAll('button, a, .option, .grid-item').forEach(el => {
+        el.style.cursor = 'pointer';
+    });
 
-    // Common functionality for both desktop and mobile
     const options = document.querySelectorAll('.option');
-    const resetName = document.getElementById('reset-name');
-    const name = document.getElementById('name');
     const scrollToOptionsButton = document.getElementById('scroll-to-options');
     const optionsSection = document.getElementById('options-section');
     const optionDescription = document.getElementById('option-description');
     const contactButton = document.getElementById('contact-button');
     const showcaseButton = document.getElementById('showcase-button');
+    const modeSwitch = document.getElementById('mode-switch');
 
     const originalText = "As a third-year computer science student with a passion for web development and artificial intelligence,<br>I am currently advancing my skills as a data scientist. I am dedicated to exploring the frontiers of technology and crafting innovative solutions that enhance user experiences.";
 
@@ -53,9 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     };
 
-    if (resetName) resetName.addEventListener('click', resetText);
-    if (name) name.addEventListener('click', resetText);
-
     scrollToOptionsButton.addEventListener('click', () => {
         optionsSection.scrollIntoView({ behavior: 'smooth' });
     });
@@ -65,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('fade-out');
         setTimeout(() => {
             window.location.href = url;
-        }, 500); // Duration of the fade-out animation
+        }, 500);
     };
 
     if (contactButton) {
@@ -75,4 +64,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (showcaseButton) {
         showcaseButton.addEventListener('click', (event) => handleNavigation(event, 'showcase.html'));
     }
+
+    // Toggle light/dark mode
+    modeSwitch.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        modeSwitch.textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌙';
+    });
 });

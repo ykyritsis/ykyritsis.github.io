@@ -6,23 +6,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.addEventListener('submit', async (event) => {
         event.preventDefault();
-        const stock = document.getElementById('stock').value.toUpperCase();
-        const year = document.getElementById('year').value;
-        const amount = document.getElementById('amount').value;
+        const stock = document.getElementById('stock').value.trim().toUpperCase();
+        const year = document.getElementById('year').value.trim();
+        const amount = document.getElementById('amount').value.trim();
 
-        const apiKey = 'PLLB9IXIBP7WVQJD';
-        const stockUrl = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${stock}&apikey=${apiKey}`;
+        // Validate input
+        if (!stock || !year || !amount || isNaN(amount) || isNaN(year) || year.length !== 4) {
+            resultDiv.textContent = 'Please provide valid input.';
+            return;
+        }
+
+        const apiKey = '8USFM8Q09C1OHYYB';
         const stockTimeSeriesUrl = `https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=${stock}&apikey=${apiKey}`;
 
         try {
-            const response = await fetch(stockUrl);
-            const stockData = await response.json();
-
-            if (!stockData.Name) {
-                resultDiv.textContent = 'Unable to retrieve company name. Please check the stock symbol and try again.';
-                return;
-            }
-
             const responseTimeSeries = await fetch(stockTimeSeriesUrl);
             const timeSeriesData = await responseTimeSeries.json();
 
@@ -43,18 +40,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const finalValue = initialShares * finalPrice;
                 const gainLoss = finalValue - amount;
                 const percentageChange = (gainLoss / amount) * 100;
-                const upDown = gainLoss >= 0 ? 'up' : 'down';
 
                 // Format the final value with commas
                 const formattedFinalValue = finalValue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
-                queryDiv.textContent = `What if I bought $${amount} worth of ${stockData.Name} (${stock}) in ${year}?`;
+                queryDiv.textContent = `What if I bought $${amount} worth of ${stock} in ${year}?`;
                 resultDiv.innerHTML = `It would be worth <strong>$${formattedFinalValue}</strong> today.`;
-                percentageChangeDiv.innerHTML = `You would be ${upDown} <span style="color: ${gainLoss >= 0 ? 'green' : 'red'};"><strong>${percentageChange.toFixed(2)}%</strong></span>.`;
+                percentageChangeDiv.innerHTML = `You would be <span style="color: ${gainLoss >= 0 ? 'green' : 'red'};"><strong>${percentageChange.toFixed(2)}%</strong></span>.`;
             } else {
                 resultDiv.textContent = 'Unable to retrieve stock data. Please check the stock symbol and try again.';
             }
         } catch (error) {
+            console.error('Error:', error);
             resultDiv.textContent = 'An error occurred. Please try again later.';
         }
     });

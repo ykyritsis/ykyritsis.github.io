@@ -1,10 +1,18 @@
-/* Base styling */
+/* Define the custom font */
+@font-face {
+    font-family: 'HelveticaNeue';
+    src: url('HelveticaNeue.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply the custom font to the body */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neue', 'Arial', sans-serif;
-    background: url('backround.jpg') no-repeat center center fixed;
-    color: #333;
+    font-family: 'HelveticaNeue', 'Helvetica Neue', 'Arial', sans-serif;
+    background-color: #fff; /* Light background as default */
+    color: #000; /* Dark text as default */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,46 +32,21 @@ body {
     text-align: center;
 }
 
-.top-center-logo {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px; /* Adjust size as needed */
-    height: auto;
-    border-radius: 10px;
-}
-
-.text-content {
-    flex: 2;
-    padding: 0 20px;
-    margin-top: 60px; /* Reduced margin to decrease space */
-}
-
-.text-content h1 {
-    font-size: 2.5rem;
-    margin: 0;
-    cursor: pointer;
-}
-
-.text-content h2 {
-    font-size: 3.5rem;
-    margin: 10px 0;
+.name-and-image {
+    font-size: 5rem; /* Large bold font */
     font-weight: bold;
-    cursor: pointer;
+    margin: 0;
+    background: linear-gradient(45deg, #ff00cc, #3333ff); /* Gradient colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
 }
 
-.text-content .dot {
-    color: #0056b3;
-}
-
-.visual-element {
-    display: none; /* Hide the visual element that was previously below the text */
-}
-
-.text-content .location {
-    font-size: 1.2rem;
+.subtitle {
+    font-size: 1.2rem; /* Smaller text for subtitle */
     margin: 10px 0;
+    color: #000; /* Dark text for subtitle */
 }
 
 .text-content p {
@@ -73,62 +56,32 @@ body {
     transition: opacity 1s;
 }
 
-.contact-button {
+/* Styling for rounded buttons */
+button {
+    background: none; /* No background */
+    border: 2px solid transparent; /* Outline border */
+    color: #000; /* Dark text */
     padding: 15px 30px;
-    font-size: 1.2rem;
-    margin-top: 20px;
-    background-color: #0056b3;
-    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    cursor: pointer;
+    transition: transform 0.3s ease, color 0.3s ease, border 0.3s ease; /* Smooth transition */
+    border-image: linear-gradient(45deg, #ff00cc, #3333ff) 1; /* Gradient border */
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#contact-button {
+    background: linear-gradient(45deg, #ff00cc, #3333ff); /* Filled gradient background */
+    color: #fff; /* White text */
     border: none;
     cursor: pointer;
-    border-radius: 50px;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-
-.scroll-button {
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    margin-top: 20px;
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 50px;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-
-.showcase-button {
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    margin-top: 20px;
-    background-color: #ffc107;
-    color: #333;
-    border: none;
-    cursor: pointer;
-    border-radius: 50px;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-}
-
-.scroll-button i {
-    margin-left: 10px;
-}
-
-.contact-button:hover {
-    background-color: #004494;
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.scroll-button:hover {
-    background-color: #218838;
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.showcase-button:hover {
-    background-color: #e0a800;
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 50px; /* Ensure rounded corners */
 }
 
 .separator {
@@ -159,7 +112,7 @@ body {
 .need-text {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #333;
+    color: #000;
     margin-right: 20px;
 }
 
@@ -175,12 +128,19 @@ body {
     font-size: 1.2rem;
     margin: 10px 0;
     cursor: pointer;
-    transition: color 0.3s, transform 0.3s;
-    text-decoration: underline;
+    transition: color 0.3s, transform 0.3s, border-bottom 0.3s;
+    text-decoration: none;
+    background: linear-gradient(45deg, #ff00cc, #3333ff); /* Gradient colors */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    border-bottom: 1px solid transparent;
 }
 
 .options-content .option:hover {
     transform: scale(1.2);
+    border-bottom: 1px solid #000;
 }
 
 .options-content .option.selected {
@@ -199,7 +159,7 @@ body {
     text-align: left;
     max-width: 600px;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: rgba(255, 255, 255, 0.1); /* Light transparent background */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     opacity: 0;
@@ -210,6 +170,43 @@ body {
 .option-description.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Light/Dark mode switch */
+.mode-switch {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+/* Dark mode specific styles */
+body.dark-mode {
+    background-color: #000; /* Dark background */
+    color: #fff; /* Light text */
+}
+
+body.dark-mode .subtitle,
+body.dark-mode .need-text {
+    color: #fff; /* Light text for subtitle and need-text */
+}
+
+body.dark-mode button {
+    color: #fff; /* Light text for buttons */
+    border-color: #fff; /* Light border for buttons */
+}
+
+body.dark-mode button:hover {
+    transform: scale(1.05);
+}
+
+body.dark-mode .options-content .option {
+    border-bottom: 1px solid transparent;
+}
+
+body.dark-mode .options-content .option:hover {
+    border-bottom: 1px solid #fff;
 }
 
 /* Media Queries for Responsiveness */
@@ -225,19 +222,15 @@ body {
         margin-bottom: 20px;
     }
 
-    .text-content h1 {
-        font-size: 1.8rem;
+    .name-and-image {
+        font-size: 3rem; /* Adjust font size for mobile */
     }
 
-    .text-content h2 {
-        font-size: 2.5rem;
+    .subtitle {
+        font-size: 1rem; /* Adjust font size for mobile */
     }
 
-    .text-content .location,
-    .text-content p,
-    .contact-button,
-    .scroll-button,
-    .showcase-button {
+    .text-content p {
         font-size: 1rem;
         padding: 10px 20px;
     }
@@ -266,10 +259,6 @@ body {
         padding: 15px;
     }
 
-    .visual-element {
-        width: 50px; /* Smaller size on mobile devices */
-    }
-
     .text-content {
         margin-top: 80px; /* Adjusted for mobile */
     }
@@ -281,19 +270,15 @@ body {
         padding: 20px;
     }
 
-    .text-content h1 {
-        font-size: 2rem;
+    .name-and-image {
+        font-size: 4rem; /* Adjust font size for tablets */
     }
 
-    .text-content h2 {
-        font-size: 3rem;
+    .subtitle {
+        font-size: 1.1rem; /* Adjust font size for tablets */
     }
 
-    .text-content .location,
-    .text-content p,
-    .contact-button,
-    .scroll-button,
-    .showcase-button {
+    .text-content p {
         font-size: 1.1rem;
         padding: 12px 25px;
     }
@@ -321,10 +306,6 @@ body {
         padding: 20px;
     }
 
-    .visual-element {
-        width: 75px; /* Medium size on tablets */
-    }
-
     .text-content {
         margin-top: 70px; /* Adjusted for tablets */
     }
@@ -336,19 +317,15 @@ body {
         padding: 30px;
     }
 
-    .text-content h1 {
-        font-size: 2.5rem;
+    .name-and-image {
+        font-size: 5rem; /* Larger font size for desktops */
     }
 
-    .text-content h2 {
-        font-size: 3.5rem;
+    .subtitle {
+        font-size: 1.2rem; /* Adjust font size for desktops */
     }
 
-    .text-content .location,
-    .text-content p,
-    .contact-button,
-    .scroll-button,
-    .showcase-button {
+    .text-content p {
         font-size: 1.2rem;
         padding: 15px 30px;
     }
@@ -375,10 +352,6 @@ body {
         font-size: 1rem;
         padding: 25px;
     }
-
-    .visual-element {
-        width: 150px; /* Larger size on laptops and desktops */
-    }
 }
 
 /* Fade-out animation */
@@ -394,4 +367,3 @@ body {
         opacity: 0;
     }
 }
-

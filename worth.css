@@ -1,6 +1,12 @@
 /* Styles specific to the "What if I bought?" page */
 
-/* Additional styles for horizontal form layout */
+body {
+    background-color: #fff;
+    color: #000;
+    font-family: 'HelveticaNeue', 'Helvetica Neue', 'Arial', sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
 #worthForm {
     display: flex;
     gap: 10px;
@@ -41,37 +47,25 @@
 #worthForm button {
     padding: 10px 20px;
     font-size: 1.5rem;
-    background-color: #0056b3;
-    color: #fff;
-    border: none;
+    background: none;
+    border: 2px solid transparent;
+    color: #000;
     cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    margin-top: 10px;
+    border-radius: 50px;
+    transition: transform 0.3s ease, color 0.3s ease, border 0.3s ease;
+    border-image: linear-gradient(45deg, #ff00cc, #3333ff) 1;
 }
 
 #worthForm button:hover {
-    background-color: #004494;
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-color: #ff00cc; /* Gradient border on hover */
 }
 
-#query {
-    font-size: 1.5rem;
-    margin-top: 20px;
-}
-
-#result {
+#query, #result, #percentageChange {
     font-size: 1.5rem;
     margin-top: 20px;
 }
 
 #result strong {
     font-size: 2rem;
-}
-
-#percentageChange {
-    font-size: 1.5rem;
-    margin-top: 10px;
-    font-weight: bold;
 }
