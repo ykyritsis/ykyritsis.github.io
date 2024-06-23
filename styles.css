@@ -1,7 +1,12 @@
 /* Define the custom font */
 @font-face {
     font-family: 'HelveticaNeue';
-    src: url("./HelveticaNeue.ttf") format('truetype');
+    src: url('./HelveticaNeue.eot'); /* IE9 Compat Modes */
+    src: url('./HelveticaNeue.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./HelveticaNeue.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./HelveticaNeue.woff') format('woff'), /* Pretty Modern Browsers */
+         url('./HelveticaNeue.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./HelveticaNeue.svg#HelveticaNeue') format('svg'); /* Legacy iOS */
     font-weight: normal;
     font-style: normal;
 }
@@ -322,48 +327,4 @@ body.dark-mode .options-content .option:hover {
     }
 
     .subtitle {
-        font-size: 1.2rem; /* Adjust font size for desktops */
-    }
-
-    .text-content p {
-        font-size: 1.2rem;
-        padding: 15px 30px;
-    }
-
-    .options-wrapper {
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .need-text {
-        font-size: 1.8rem;
-    }
-
-    .options-content {
-        align-items: flex-start;
-    }
-
-    .options-content .option {
-        font-size: 1.3rem;
-    }
-
-    .option-description {
-        font-size: 1rem;
-        padding: 25px;
-    }
-}
-
-/* Fade-out animation */
-.fade-out {
-    animation: fadeOut 0.5s forwards;
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
+        font-size: 1.2rem; /*To ensure compatibility across different devices, including iPhones and iPads, update your CSS `@font-face` rule to include multiple font formats as follows:
