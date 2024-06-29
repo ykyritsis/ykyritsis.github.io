@@ -7,6 +7,21 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+h1.title {
+    text-align: center;
+    font-size: 3rem;
+    background: linear-gradient(45deg, #32CD32, #228B22);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 #worthForm {
     display: flex;
     gap: 10px;
@@ -14,6 +29,12 @@ body {
     align-items: center;
     flex-wrap: wrap;
     font-size: 1.5rem;
+    animation: slideUp 1s ease-in-out;
+}
+
+@keyframes slideUp {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
 }
 
 #worthForm div {
@@ -26,6 +47,7 @@ body {
     font-size: 1.5rem; /* Bigger text */
     text-align: left;
     margin-bottom: 5px;
+    transition: color 0.3s;
 }
 
 #worthForm input {
@@ -36,34 +58,37 @@ body {
     font-size: 1.5rem;
     text-align: center;
     outline: none;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s, transform 0.3s;
     margin: 0 5px;
+    font-weight: bold; /* Make inputs bold */
 }
 
 #worthForm input:focus {
     border-color: black;
+    transform: scale(1.05);
 }
 
 #worthForm button {
     padding: 10px 20px;
     font-size: 1.5rem;
-    background: none;
-    border: 2px solid transparent;
-    color: #000;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    border: none;
+    color: white;
     cursor: pointer;
     border-radius: 50px;
-    transition: transform 0.3s ease, color 0.3s ease, border 0.3s ease;
-    border-image: linear-gradient(45deg, #ff00cc, #3333ff) 1;
+    transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease;
 }
 
 #worthForm button:hover {
-    transform: scale(1.05);
-    border-color: #ff00cc; /* Gradient border on hover */
+    transform: scale(1.1);
+    color: white;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
 }
 
 #query, #result, #percentageChange {
     font-size: 1.5rem;
     margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 #result strong {

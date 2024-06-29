@@ -1,12 +1,7 @@
 /* Define the custom font */
 @font-face {
     font-family: 'HelveticaNeue';
-    src: url('./HelveticaNeue.eot'); /* IE9 Compat Modes */
-    src: url('./HelveticaNeue.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('./HelveticaNeue.woff2') format('woff2'), /* Super Modern Browsers */
-         url('./HelveticaNeue.woff') format('woff'), /* Pretty Modern Browsers */
-         url('./HelveticaNeue.ttf') format('truetype'), /* Safari, Android, iOS */
-         url('./HelveticaNeue.svg#HelveticaNeue') format('svg'); /* Legacy iOS */
+    src: url('HelveticaNeue.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -63,9 +58,9 @@ body {
 
 /* Styling for rounded buttons */
 button {
-    background: none; /* No background */
-    border: 2px solid transparent; /* Outline border */
-    color: #000; /* Dark text */
+    background: linear-gradient(45deg, #ff00cc, #3333ff); /* Default gradient background */
+    border: none;
+    color: #fff; /* White text */
     padding: 15px 30px;
     text-align: center;
     text-decoration: none;
@@ -73,21 +68,33 @@ button {
     font-size: 16px;
     margin: 10px 2px;
     cursor: pointer;
-    transition: transform 0.3s ease, color 0.3s ease, border 0.3s ease; /* Smooth transition */
-    border-image: linear-gradient(45deg, #ff00cc, #3333ff) 1; /* Gradient border */
+    border-radius: 50px; /* Ensure rounded corners */
+    transition: transform 0.3s ease, color 0.3s ease, background 0.3s ease; /* Smooth transition */
 }
 
 button:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
+/* Specific styling for contact button */
 #contact-button {
-    background: linear-gradient(45deg, #ff00cc, #3333ff); /* Filled gradient background */
-    color: #fff; /* White text */
-    border: none;
-    cursor: pointer;
-    border-radius: 50px; /* Ensure rounded corners */
+    background: linear-gradient(45deg, #00ff00, #008000); /* Green gradient */
 }
+
+#contact-button:hover {
+    background: linear-gradient(45deg, #00ff00, #008000); /* Maintain green gradient on hover */
+}
+
+/* Specific styling for showcase button */
+#showcase-button {
+    background: linear-gradient(45deg, #00c6ff, #0072ff); /* Blue gradient */
+}
+
+#showcase-button:hover {
+    background: linear-gradient(45deg, #00c6ff, #0072ff); /* Maintain blue gradient on hover */
+}
+
+
 
 .separator {
     width: 100%;
@@ -327,4 +334,48 @@ body.dark-mode .options-content .option:hover {
     }
 
     .subtitle {
-        font-size: 1.2rem; /*To ensure compatibility across different devices, including iPhones and iPads, update your CSS `@font-face` rule to include multiple font formats as follows:
+        font-size: 1.2rem; /* Adjust font size for desktops */
+    }
+
+    .text-content p {
+        font-size: 1.2rem;
+        padding: 15px 30px;
+    }
+
+    .options-wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .need-text {
+        font-size: 1.8rem;
+    }
+
+    .options-content {
+        align-items: flex-start;
+    }
+
+    .options-content .option {
+        font-size: 1.3rem;
+    }
+
+    .option-description {
+        font-size: 1rem;
+        padding: 25px;
+    }
+}
+
+/* Fade-out animation */
+.fade-out {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
