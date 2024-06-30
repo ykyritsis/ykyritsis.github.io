@@ -7,11 +7,41 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
         body {
             background-color: #fff;
             color: #000;
             font-family: 'HelveticaNeue', 'Helvetica Neue', 'Arial', sans-serif;
             transition: background-color 0.3s, color 0.3s;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .contact-container {
@@ -22,6 +52,8 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            animation: slideIn 1s ease-in-out;
+            position: relative;
         }
 
         .contact-title {
@@ -32,12 +64,14 @@
             background: linear-gradient(45deg, #ff00cc, #3333ff); /* Gradient colors */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .contact-info {
             font-size: 1.5rem;
             line-height: 1.5;
             text-align: center;
+            animation: slideIn 1.5s ease-in-out;
         }
 
         .contact-info p {
@@ -47,6 +81,23 @@
         .contact-info a {
             color: #0056b3;
             text-decoration: none;
+            position: relative;
+        }
+
+        .contact-info a:hover {
+            animation: shimmer 2s linear infinite;
+        }
+
+        .contact-info a:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -200%;
+            width: 200%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+            background-size: 200% 100%;
+            animation: shimmer 2s linear infinite;
         }
 
         .contact-info i {
@@ -58,22 +109,21 @@
         }
 
         .back-link {
-            align-self: flex-start;
-            margin-bottom: 20px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
             font-size: 1rem;
-            color: #0056b3;
+            color: #fff;
             text-decoration: none;
-            border: 2px solid transparent;
             padding: 10px 20px;
             border-radius: 50px;
-            background: none;
-            border-image: linear-gradient(45deg, #ff00cc, #3333ff) 1;
+            background: linear-gradient(45deg, #ff00cc, #3333ff); /* Original purple gradient */
+            border: none;
+            transition: transform 0.3s;
         }
 
         .back-link:hover {
             transform: scale(1.05);
-            color: #fff;
-            background: linear-gradient(45deg, #ff00cc, #3333ff);
         }
     </style>
 </head>

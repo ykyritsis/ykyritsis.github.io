@@ -6,10 +6,40 @@
     <title>Showcase - YK</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
         body {
             background-color: #fff;
             transition: background-color 0.3s, color 0.3s;
             font-family: 'HelveticaNeue', 'Helvetica Neue', 'Arial', sans-serif;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .showcase-container {
@@ -20,6 +50,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            animation: slideIn 1s ease-in-out;
         }
 
         .showcase-title {
@@ -27,9 +58,10 @@
             font-weight: bold;
             margin-bottom: 20px;
             text-align: center;
-            background: linear-gradient(45deg, #ff00cc, #3333ff); /* Gradient colors */
+            background: linear-gradient(45deg, #ff00cc, #3333ff); /* Original purple gradient */
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .grid {
@@ -37,67 +69,106 @@
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
             width: 100%;
+            animation: slideIn 1.5s ease-in-out;
         }
 
         .grid-item {
             background-color: #f0f0f0;
             border-radius: 50px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            padding: 15px; /* Reduced padding */
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
-            cursor: pointer;
+            cursor: default;
+            animation: slideIn 2s ease-in-out;
         }
 
-        .grid-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .placeholder-text {
+        .project-title {
             font-size: 1.5rem;
+            font-weight: bold;
             color: #333;
+            margin-bottom: 10px;
+            text-decoration: none; /* Remove underline */
+        }
+
+        .project-description {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        .explore-link {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #00c6ff, #0072ff); /* Blue gradient */
+            border: none;
+            background-size: 400% 100%;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .explore-link:hover {
+            transform: scale(1.05);
+            animation: shimmer 2s linear infinite;
         }
 
         .back-link {
-            align-self: flex-start;
-            margin-bottom: 20px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
             font-size: 1rem;
-            color: #0056b3;
+            color: #fff;
             text-decoration: none;
-            border: 2px solid transparent;
             padding: 10px 20px;
             border-radius: 50px;
-            background: none;
-            border-image: linear-gradient(45deg, #ff00cc, #3333ff) 1;
+            background: linear-gradient(45deg, #ff00cc, #3333ff); /* Original purple gradient */
+            border: none;
+            transition: transform 0.3s;
         }
 
         .back-link:hover {
             transform: scale(1.05);
-            color: #fff;
-            background: linear-gradient(45deg, #ff00cc, #3333ff);
         }
     </style>
 </head>
-<body class="light-mode"> <!-- Set light mode as default -->
+<body class="light-mode">
     <div class="showcase-container">
         <a href="index.html" class="back-link styled-button">← Back</a>
         <h1 class="showcase-title">Showcase</h1>
         <div class="grid">
             <div class="grid-item">
-                <a href="what-would-it-be-worth.html">
-                    <p class="placeholder-text">Project 1: What Would It Be Worth?</p>
-                </a>
+                <p class="project-title">What Would It Be Worth?</p>
+                <p class="project-description">A tool to see how much you would be up or down if you bought a stock in the past.</p>
+                <a href="what-would-it-be-worth.html" class="explore-link">Explore</a>
             </div>
             <div class="grid-item">
-                <a href="https://conflict-tracker.vercel.app/">
-                    <p class="placeholder-text">Project 2: Global Conflict Tracker</p>
-                </a>
+                <p class="project-title">Global Conflict Tracker</p>
+                <p class="project-description">A web application to track ongoing global conflicts and their impacts.</p>
+                <a href="https://conflict-tracker.vercel.app/" class="explore-link">Explore</a>
             </div>
-            <div class="grid-item"><p class="placeholder-text">Project 3</p></div>
-            <div class="grid-item"><p class="placeholder-text">Project 4</p></div>
-            <div class="grid-item"><p class="placeholder-text">Project 5</p></div>
-            <div class="grid-item"><p class="placeholder-text">Project 6</p></div>
+            <div class="grid-item">
+                <p class="project-title">Project 3</p>
+                <p class="project-description">Description for Project 3.</p>
+                <a href="#" class="explore-link">Explore</a>
+            </div>
+            <div class="grid-item">
+                <p class="project-title">Project 4</p>
+                <p class="project-description">Description for Project 4.</p>
+                <a href="#" class="explore-link">Explore</a>
+            </div>
+            <div class="grid-item">
+                <p class="project-title">Project 5</p>
+                <p class="project-description">Description for Project 5.</p>
+                <a href="#" class="explore-link">Explore</a>
+            </div>
+            <div class="grid-item">
+                <p class="project-title">Project 6</p>
+                <p class="project-description">Description for Project 6.</p>
+                <a href="#" class="explore-link">Explore</a>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
