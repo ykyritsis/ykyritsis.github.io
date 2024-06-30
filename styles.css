@@ -12,7 +12,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: HelveticaNeue;
+    font-family: 'HelveticaNeue';
     background-color: #fff; /* Light background as default */
     color: #000; /* Dark text as default */
     display: flex;
@@ -22,6 +22,8 @@ body {
     min-height: 100vh;
     transition: background-color 0.3s, color 0.3s;
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -36,7 +38,7 @@ body {
 
 .name-and-image {
     font-size: 5rem; /* Large bold font */
-    font-weight: bold;
+    font-weight: 700; /* Explicitly set the font weight to 700 */
     margin: 0;
     background: linear-gradient(45deg, #ff00cc, #3333ff); /* Gradient colors */
     -webkit-background-clip: text;
@@ -95,8 +97,6 @@ button:hover {
 #showcase-button:hover {
     background: linear-gradient(45deg, #00c6ff, #0072ff); /* Maintain blue gradient on hover */
 }
-
-
 
 .separator {
     width: 100%;
@@ -238,6 +238,7 @@ body.dark-mode .options-content .option:hover {
 
     .name-and-image {
         font-size: 3rem; /* Adjust font size for mobile */
+        font-weight: 700; /* Ensure the font weight is set for mobile */
     }
 
     .subtitle {
@@ -286,6 +287,7 @@ body.dark-mode .options-content .option:hover {
 
     .name-and-image {
         font-size: 4rem; /* Adjust font size for tablets */
+        font-weight: 700; /* Ensure the font weight is set for tablets */
     }
 
     .subtitle {
@@ -333,6 +335,7 @@ body.dark-mode .options-content .option:hover {
 
     .name-and-image {
         font-size: 5rem; /* Larger font size for desktops */
+        font-weight: 700; /* Ensure the font weight is set for desktops */
     }
 
     .subtitle {
